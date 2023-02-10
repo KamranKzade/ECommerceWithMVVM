@@ -2,6 +2,7 @@
 using ECommerceWithMVVM.DataAccess;
 using ECommerceWithMVVM.DataAccess.Repositories;
 using ECommerceWithMVVM.Domain.Abstractions;
+using ECommerceWithMVVM.Domain.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -91,7 +92,11 @@ namespace ECommerceWithMVVM.Domain.ViewModels
             {
                 if (_IsCustomer is true)
                 {
-                    MessageBox.Show("New Page is loading");
+                    SignUpWindow window= new SignUpWindow();
+                    var vm = new SignUpViewModel();
+                    window.DataContext= vm;
+                    window.ShowDialog();
+
                 }
                 else
                     MessageBox.Show("Admin adi ile qeydiyyatdan kecmek mummkun deyil", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
