@@ -37,4 +37,16 @@
       <Association Name="Product_Order" Member="Orders" ThisKey="Id" OtherKey="ProductId" Type="Order" />
     </Type>
   </Table>
+  <Function Name="dbo.CheckAdmin" Method="CheckAdmin">
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="result" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CheckCustomer" Method="CheckCustomer">
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="result" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

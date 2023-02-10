@@ -51,5 +51,10 @@ namespace ECommerceWithMVVM.DataAccess.Repositories
 
             _dataContext.SubmitChanges();
         }
+
+        public void CheckAdmin(string text, string password, ref int? result)
+        {
+            _dataContext.CheckAdmin(text, password, ref result);
+        }
     }
 }

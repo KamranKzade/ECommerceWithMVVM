@@ -105,6 +105,22 @@ namespace ECommerceWithMVVM.DataAccess
 				return this.GetTable<Product>();
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CheckAdmin")]
+		public int CheckAdmin([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(30)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(30)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> result)
+		{
+			IExecuteResult result1 = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password, result);
+			result = ((System.Nullable<int>)(result1.GetParameterValue(2)));
+			return ((int)(result1.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CheckCustomer")]
+		public int CheckCustomer([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(30)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(30)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> result)
+		{
+			IExecuteResult result1 = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password, result);
+			result = ((System.Nullable<int>)(result1.GetParameterValue(2)));
+			return ((int)(result1.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Admins")]

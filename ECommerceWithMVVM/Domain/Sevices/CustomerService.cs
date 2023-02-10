@@ -19,5 +19,7 @@ namespace ECommerceWithMVVM.Domain.Sevices
             var customer = _customerRepo.GetAllData().FirstOrDefault(c => c.Username == username);
             return customer;
         }
+
+
     }
 }

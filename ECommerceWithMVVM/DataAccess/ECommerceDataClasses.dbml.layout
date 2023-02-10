@@ -26,14 +26,14 @@
         <elementListCompartment Id="4dc9295d-1549-4451-8752-b2a6b1206b19" absoluteBounds="0.765, 4.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 1.81814697265625); (3.5 : 1.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.81814697265625); (3.5 : 1.81814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ECommerceDataClassesDataContext/Customer/Customer_Order" />
       <nodes>
         <classShapeMoniker Id="676b58ff-cd1e-474b-a4d8-73fd186abb0c" />
         <classShapeMoniker Id="5439c1e8-dbbd-4191-a07e-f6db793292dd" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.51849609375); (3.59375 : 5.51849609375); (3.59375 : 2.64589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 5.51849609375); (3.59375 : 5.51849609375); (3.59375 : 2.64589680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ECommerceDataClassesDataContext/Product/Product_Order" />
       <nodes>
         <classShapeMoniker Id="c0c25ade-e3d3-4d10-9a6f-0643aedb774f" />

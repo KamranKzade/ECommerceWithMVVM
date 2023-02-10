@@ -51,5 +51,10 @@ namespace ECommerceWithMVVM.DataAccess.Repositories
             };
             _dataContext.SubmitChanges();
         }
+
+        public void CheckCustomer(string username, string password, ref int? result)
+        {
+            _dataContext.CheckCustomer(username, password,ref result);
+        }
     }
 }

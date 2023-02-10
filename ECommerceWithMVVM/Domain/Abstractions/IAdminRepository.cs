@@ -9,5 +9,6 @@ namespace ECommerceWithMVVM.Domain.Abstractions
 {
     public interface IAdminRepository:IRepository<Admin>
     {
+        void CheckAdmin(string text, string password, ref int? result);
     }
 }
