@@ -16,14 +16,23 @@ namespace ECommerceWithMVVM.Domain.ViewModels
         public RelayCommand UpdateCommand { get; set; }
         public RelayCommand DeleteCommand { get; set; }
         public RelayCommand ShowAllCommand { get; set; }
+
         public IRepository<Customer> _customerRepo { get; set; }
         public IRepository<Product> _productRepo { get; set; }
 
+
+        private Customer selectedProduct;
+        public Customer SelectedProduct
+        {
+            get { return selectedProduct; }
+            set { selectedProduct = value; OnPropertyChanged(); }
+        }
 
         public AdminViewModel()
         {
             _customerRepo = new CustomerRepository();
             _productRepo = new ProductRepository();
+            SelectedProduct = new Customer();
 
 
             DeleteCommand = new RelayCommand((o) =>
@@ -124,9 +133,9 @@ namespace ECommerceWithMVVM.Domain.ViewModels
 
                 if (customer_radio_button.IsChecked is true)
                 {
-                    InsertCustomerWindow window= new InsertCustomerWindow();
+                    InsertCustomerWindow window = new InsertCustomerWindow();
                     var vm = new InsertCustomerViewModel(_customerRepo);
-                    window.DataContext= vm;
+                    window.DataContext = vm;
 
                     window.ShowDialog();
                 }
@@ -134,7 +143,7 @@ namespace ECommerceWithMVVM.Domain.ViewModels
                 {
                     InsertProductWindow window = new InsertProductWindow();
                     var vm = new InsertProductViewModel(_productRepo);
-                    window.DataContext= vm;
+                    window.DataContext = vm;
 
                     window.ShowDialog();
                 }
@@ -142,8 +151,42 @@ namespace ECommerceWithMVVM.Domain.ViewModels
                     MessageBox.Show("Zehmet olmasa secimlerden birini edin", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
 
             });
+
+            UpdateCommand = new RelayCommand((o) =>
+            {
+                var myGrid = o as Grid;
+
+                var stackpanel = myGrid.Children[1] as StackPanel;
+                var customer_radio_button = stackpanel.Children[0] as RadioButton;
+                var product_radio_button = stackpanel.Children[1] as RadioButton;
+                var scroll = myGrid.Children[2] as ScrollViewer;
+                var dataGrid = scroll.Content as DataGrid;
+
+                if (customer_radio_button.IsChecked is true)
+                {
+                    var customer = dataGrid.SelectedItem as Customer;
+
+                    var view = new UpdateCustomerWindow();
+
+                    view.userName.Text = customer.Username;
+                    view.password.Text = customer.Password;
+
+                    var vm = new UpdateCustomerViewModel(customer, _customerRepo);
+
+                    view.DataContext = vm;
+
+                    view.ShowDialog();
+
+                }
+                else if (product_radio_button.IsChecked is true)
+                {
+
+                }
+                else
+                    MessageBox.Show("Zehmet olmasa secimlerden birini edin", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+
+
+            });
         }
-
-
     }
 }

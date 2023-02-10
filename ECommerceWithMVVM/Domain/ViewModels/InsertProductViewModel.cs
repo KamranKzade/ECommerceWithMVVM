@@ -1,14 +1,10 @@
-﻿using ECommerceWithMVVM.Commands;
-using ECommerceWithMVVM.DataAccess.Repositories;
-using ECommerceWithMVVM.DataAccess;
-using ECommerceWithMVVM.Domain.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using ECommerceWithMVVM.Commands;
+using ECommerceWithMVVM.DataAccess;
+using ECommerceWithMVVM.Domain.Abstractions;
+using ECommerceWithMVVM.DataAccess.Repositories;
 
 namespace ECommerceWithMVVM.Domain.ViewModels
 {
@@ -54,7 +50,7 @@ namespace ECommerceWithMVVM.Domain.ViewModels
 
                 _productRepo.AddData(product);
 
-                MessageBox.Show("Successfully, Insert Customer", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Successfully, Insert Product", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 window.Close();
             });
         }

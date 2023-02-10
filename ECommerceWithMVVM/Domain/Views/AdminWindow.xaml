@@ -63,6 +63,7 @@
         <ScrollViewer Grid.Row="2"
                       VerticalScrollBarVisibility="Auto">
             <DataGrid Name="myDataGrid"
+                      SelectedItem="{Binding SelectedProduct}"
                       />
         </ScrollViewer>
 
@@ -79,6 +80,7 @@
             <Button Content="Update"
                     Name="update"
                     Command="{Binding UpdateCommand}"
+                    CommandParameter="{Binding ElementName=myGrid}"
                     Style="{StaticResource btnStyleAdmin}"
                     FontSize="32"
                     Foreground="#f11712"

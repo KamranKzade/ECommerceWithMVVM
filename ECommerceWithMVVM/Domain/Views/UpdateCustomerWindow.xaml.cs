@@ -3,9 +3,10 @@
 
 namespace ECommerceWithMVVM.Domain.Views
 {
-    public partial class InsertCustomerWindow : Window
+
+    public partial class UpdateCustomerWindow : Window
     {
-        public InsertCustomerWindow()
+        public UpdateCustomerWindow()
         {
             InitializeComponent();
         }

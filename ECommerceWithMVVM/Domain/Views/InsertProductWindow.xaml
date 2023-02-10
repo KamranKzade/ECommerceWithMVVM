@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Title="AddBookWindow"
+        Title="Insert Product"
         Height="800"
         Name="mywindow"
         Width="600">
@@ -89,7 +89,8 @@
             <!-- TextBox -->
             <TextBox Grid.Column="1"
                      Grid.Row="0"
-                     Width="200"
+                     Margin="50 0"
+                     Padding="0"
                      Height="70"
                      VerticalAlignment="Center"
                      HorizontalContentAlignment="Center"
@@ -101,7 +102,8 @@
 
             <TextBox Grid.Column="1"
                      Grid.Row="1"
-                     Width="200"
+                     Padding="0"
+                     Margin="50 0"
                      Height="70"
                      VerticalAlignment="Center"
                      HorizontalContentAlignment="Center"
@@ -113,7 +115,8 @@
 
             <TextBox Grid.Column="1"
                      Grid.Row="2"
-                     Width="200"
+                     Padding="0"
+                     Margin="50 0"
                      Height="70"
                      VerticalAlignment="Center"
                      HorizontalContentAlignment="Center"
@@ -125,7 +128,8 @@
 
             <TextBox Grid.Column="1"
                      Grid.Row="3"
-                     Width="200"
+                     Padding="0"
+                     Margin="50 0"
                      Height="70"
                      VerticalAlignment="Center"
                      HorizontalContentAlignment="Center"
@@ -137,7 +141,8 @@
 
             <TextBox Grid.Column="1"
                      Grid.Row="8"
-                     Width="200"
+                     Margin="50 0"
+                     Padding="0"
                      Height="70"
                      VerticalAlignment="Center"
                      HorizontalContentAlignment="Center"
@@ -154,9 +159,10 @@
                 FontSize="32"
                 Command="{Binding InsertCommand}"
                 VerticalAlignment="Top"
+                Margin="50 50"
                 CommandParameter="{Binding ElementName=mywindow}"
                 Style="{StaticResource btnStyle}"
-                Content="Insert Customer"/>
+                Content="Insert Product"/>
     </Grid>
 
 </Window>
