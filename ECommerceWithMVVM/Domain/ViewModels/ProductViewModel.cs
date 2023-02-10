@@ -8,13 +8,38 @@ using ECommerceWithMVVM.DataAccess.Repositories;
 
 namespace ECommerceWithMVVM.Domain.ViewModels
 {
-    public class ProductViewModel :BaseViewModel
+    public class ProductViewModel : BaseViewModel
     {
+        private Product productInfo;
+        public Product ProductInfo
+        {
+            get { return productInfo; }
+            set { productInfo = value; OnPropertyChanged(); }
+        }
+
+
+        private int amount;
+        public int Amount
+        {
+            get { return amount; }
+            set { amount = value; OnPropertyChanged(); }
+        }
+
+        private string username;
+        public string Username
+        {
+            get { return username; }
+            set { username = value; OnPropertyChanged(); }
+        }
+        
+        
         private readonly IRepository<Order> _orderRepo;
         private readonly CustomerService _customerService;
         private readonly IRepository<Product> _productRepo;
 
         public RelayCommand OrderCommand { get; set; }
+        public RelayCommand AddToCartCommand { get; set; }
+
 
         public ProductViewModel()
         {
@@ -56,29 +81,11 @@ namespace ECommerceWithMVVM.Domain.ViewModels
                     MessageBox.Show($"{username} customer does not exist");
                 }
             });
-        }
 
-        private Product productInfo;
-
-        public Product ProductInfo
-        {
-            get { return productInfo; }
-            set { productInfo = value; OnPropertyChanged(); }
-        }
-
-
-        private int amount;
-        public int Amount
-        {
-            get { return amount; }
-            set { amount = value; OnPropertyChanged(); }
-        }
-
-        private string username;
-        public string Username
-        {
-            get { return username; }
-            set { username = value; OnPropertyChanged(); }
+            AddToCartCommand = new RelayCommand((o) => 
+            {
+                MessageBox.Show("Gelecekde yazilacaq");
+            });
         }
 
     }
