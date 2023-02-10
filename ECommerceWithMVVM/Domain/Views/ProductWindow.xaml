@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:ECommerceWithMVVM.Domain.ViewModels"
         mc:Ignorable="d"
         Title="ProductWindow" 
-        Height="650" Width="800">
+        Height="650" 
+        Name="window"
+        WindowStartupLocation="CenterScreen"
+        Width="800">
     <Grid>
         <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Center"
@@ -17,23 +20,29 @@
                 <TextBlock  FontSize="22" 
                             Text="Name"/>
                 <TextBlock  FontSize="22"
+                            Foreground="BlueViolet"
                             Text="{Binding ProductInfo.Name}"
-                            Style="{StaticResource tboxStyle}"></TextBlock>
+                            />
 
-                <TextBlock Padding="8" 
-                           FontSize="22" >Price</TextBlock>
-                <TextBlock Padding="8" 
-                           FontSize="22" 
+                <TextBlock FontSize="22" >Price</TextBlock>
+                <TextBlock FontSize="22" 
+                           Foreground="BlueViolet"
                            Text="{Binding ProductInfo.Price}" ></TextBlock>
 
-                <TextBlock Padding="8" FontSize="22" >Discount</TextBlock>
-                <TextBlock Padding="8" FontSize="22" Text="{Binding ProductInfo.Discount}" ></TextBlock>
+                <TextBlock FontSize="22" >Discount</TextBlock>
+                <TextBlock FontSize="22"
+                           Foreground="BlueViolet"
+                           Text="{Binding ProductInfo.Discount}" ></TextBlock>
 
-                <TextBlock Padding="8" FontSize="22" >Quantity</TextBlock>
-                <TextBlock Padding="8" FontSize="22" Text="{Binding ProductInfo.Quantity}" ></TextBlock>
+                <TextBlock FontSize="22" >Quantity</TextBlock>
+                <TextBlock FontSize="22"
+                           Foreground="BlueViolet"
+                           Text="{Binding ProductInfo.Quantity}" ></TextBlock>
 
-                <TextBlock Padding="8" FontSize="22" >Description</TextBlock>
-                <TextBlock Padding="8" FontSize="22" Text="{Binding ProductInfo.Description}" ></TextBlock>
+                <TextBlock FontSize="22" >Description</TextBlock>
+                <TextBlock FontSize="22" 
+                           Foreground="BlueViolet"
+                           Text="{Binding ProductInfo.Description}" ></TextBlock>
 
                 <Button BorderBrush="Orange"
                         BorderThickness="2"
@@ -43,7 +52,8 @@
                         FontSize="25" 
                         FontWeight="ExtraBlack"
                         Content="Order Now"
-                        Command="{Binding OrderCommand}"/>
+                        Command="{Binding OrderCommand}"
+                        CommandParameter="{Binding ElementName=window}"/>
 
                 <Button Margin="0,10,0,0"
                         BorderBrush="Orange" 
@@ -88,6 +98,8 @@
                                />
 
                     <TextBox VerticalAlignment="Top" 
+                             HorizontalContentAlignment="Center"
+                             VerticalContentAlignment="Center"
                              Height="40"
                              Width="200"
                              Margin="10,0,0,0"

@@ -1,4 +1,6 @@
 ﻿using ECommerceWithMVVM.Commands;
+using ECommerceWithMVVM.DataAccess.Repositories;
+using ECommerceWithMVVM.Domain.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,7 +59,14 @@ namespace ECommerceWithMVVM.Domain.ViewModels
                 }
                 else
                 {
-                    MessageBox.Show("Guest");
+
+                    var productRepo = new ProductRepository();
+                    CustomerWindow window = new CustomerWindow();
+                    var vm = new CustomerViewModel(productRepo);
+
+                    window.DataContext = vm;
+
+                    window.ShowDialog();
                 }
             });
         }

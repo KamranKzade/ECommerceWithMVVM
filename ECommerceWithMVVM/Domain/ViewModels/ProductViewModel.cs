@@ -6,6 +6,8 @@ using ECommerceWithMVVM.Domain.Sevices;
 using ECommerceWithMVVM.Domain.Abstractions;
 using ECommerceWithMVVM.DataAccess.Repositories;
 
+
+
 namespace ECommerceWithMVVM.Domain.ViewModels
 {
     public class ProductViewModel : BaseViewModel
@@ -51,6 +53,7 @@ namespace ECommerceWithMVVM.Domain.ViewModels
 
             OrderCommand = new RelayCommand((o) =>
             {
+                var window = o as Window;
                 var customer = _customerService.GetCustomerByUsername(Username);
                 if (customer != null)
                 {
@@ -69,22 +72,23 @@ namespace ECommerceWithMVVM.Domain.ViewModels
                         _productRepo.UpdateData(ProductInfo);
                         _orderRepo.AddData(order);
 
-                        MessageBox.Show("Order added successfully");
+                        MessageBox.Show("Order added successfully","Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        window.Close();
                     }
                     else
                     {
-                        MessageBox.Show($"We have only this {ProductInfo.Quantity} amount");
+                        MessageBox.Show($"We have only this {ProductInfo.Quantity} amount", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 else
                 {
-                    MessageBox.Show($"{username} customer does not exist");
+                    MessageBox.Show($"{username} customer does not exist", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             });
 
             AddToCartCommand = new RelayCommand((o) => 
             {
-                MessageBox.Show("Gelecekde yazilacaq");
+                MessageBox.Show("Gelecekde yazilacaq", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
             });
         }
 
