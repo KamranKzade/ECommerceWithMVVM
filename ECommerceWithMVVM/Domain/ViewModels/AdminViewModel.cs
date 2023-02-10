@@ -6,22 +6,12 @@ using ECommerceWithMVVM.DataAccess;
 using System.Collections.ObjectModel;
 using ECommerceWithMVVM.Domain.Abstractions;
 using ECommerceWithMVVM.DataAccess.Repositories;
+using ECommerceWithMVVM.Domain.Views;
 
 namespace ECommerceWithMVVM.Domain.ViewModels
 {
     public class AdminViewModel : BaseViewModel
     {
-
-        private ObservableCollection<Product> allProducts;
-
-        public ObservableCollection<Product> AllProducts
-        {
-            get { return allProducts; }
-            set { allProducts = value; OnPropertyChanged(); }
-        }
-
-
-
         public RelayCommand InsertCommand { get; set; }
         public RelayCommand UpdateCommand { get; set; }
         public RelayCommand DeleteCommand { get; set; }
@@ -53,8 +43,15 @@ namespace ECommerceWithMVVM.Domain.ViewModels
                     try
                     {
                         var customer = dataGrid.SelectedItem as Customer;
-                        _customerRepo.DeleteData(customer);
-                        MessageBox.Show("Successfully, Deleted Customer", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        if (customer != null)
+                        {
+                            _customerRepo.DeleteData(customer);
+                            MessageBox.Show("Successfully, Deleted Customer", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        else
+                            MessageBox.Show("Zehmet olmasa Customerlerden birini secin", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+
                     }
                     catch (Exception ex)
                     {
@@ -66,8 +63,15 @@ namespace ECommerceWithMVVM.Domain.ViewModels
                     try
                     {
                         var product = dataGrid.SelectedItem as Product;
-                        _productRepo.DeleteData(product);
-                        MessageBox.Show("Successfully, Deleted Product", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        if (product != null)
+                        {
+                            _productRepo.DeleteData(product);
+                            MessageBox.Show("Successfully, Deleted Product", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        else
+                            MessageBox.Show("Zehmet olmasa Productlardan birini secin", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+
                     }
                     catch (Exception ex)
                     {
@@ -102,6 +106,37 @@ namespace ECommerceWithMVVM.Domain.ViewModels
                 else if (product_radio_button.IsChecked is true)
                 {
                     dataGrid.ItemsSource = _productRepo.GetAllData();
+                }
+                else
+                    MessageBox.Show("Zehmet olmasa secimlerden birini edin", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            });
+
+            InsertCommand = new RelayCommand((o) =>
+            {
+                var myGrid = o as Grid;
+
+                var stackpanel = myGrid.Children[1] as StackPanel;
+                var customer_radio_button = stackpanel.Children[0] as RadioButton;
+                var product_radio_button = stackpanel.Children[1] as RadioButton;
+                var scroll = myGrid.Children[2] as ScrollViewer;
+                var dataGrid = scroll.Content as DataGrid;
+
+                if (customer_radio_button.IsChecked is true)
+                {
+                    InsertCustomerWindow window= new InsertCustomerWindow();
+                    var vm = new InsertCustomerViewModel(_customerRepo);
+                    window.DataContext= vm;
+
+                    window.ShowDialog();
+                }
+                else if (product_radio_button.IsChecked is true)
+                {
+                    InsertProductWindow window = new InsertProductWindow();
+                    var vm = new InsertProductViewModel(_productRepo);
+                    window.DataContext= vm;
+
+                    window.ShowDialog();
                 }
                 else
                     MessageBox.Show("Zehmet olmasa secimlerden birini edin", "Information", MessageBoxButton.OK, MessageBoxImage.Information);

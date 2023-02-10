@@ -66,6 +66,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Domain\Views\InsertCustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\Views\InsertProductWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Domain\Views\ProductWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,10 +121,18 @@
     <Compile Include="Domain\ViewModels\AdminViewModel.cs" />
     <Compile Include="Domain\ViewModels\BaseViewModel.cs" />
     <Compile Include="Domain\ViewModels\CustomerViewModel.cs" />
+    <Compile Include="Domain\ViewModels\InsertCustomerViewModel.cs" />
+    <Compile Include="Domain\ViewModels\InsertProductViewModel.cs" />
     <Compile Include="Domain\ViewModels\MainViewModel.cs" />
     <Compile Include="Domain\ViewModels\ProductViewModel.cs" />
     <Compile Include="Domain\Views\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Views\InsertCustomerWindow.xaml.cs">
+      <DependentUpon>InsertCustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Views\InsertProductWindow.xaml.cs">
+      <DependentUpon>InsertProductWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Domain\Views\ProductWindow.xaml.cs">
       <DependentUpon>ProductWindow.xaml</DependentUpon>

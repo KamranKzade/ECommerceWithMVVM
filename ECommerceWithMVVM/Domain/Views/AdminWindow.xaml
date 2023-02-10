@@ -70,6 +70,7 @@
                     Grid.Row="3">
             <Button Content="Insert"
                     Command="{Binding InsertCommand}"
+                    CommandParameter="{Binding ElementName=myGrid}"
                     Style="{StaticResource  btnStyleAdmin}"
                     FontSize="32"
                     Foreground="#f11712"
