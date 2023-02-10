@@ -89,7 +89,12 @@ namespace ECommerceWithMVVM.Domain.ViewModels
 
                     if (result is 1)
                     {
-                        MessageBox.Show("New Page is loading");
+                        AdminWindow window = new AdminWindow();
+
+                        AdminViewModel vm = new AdminViewModel();
+
+                        window.DataContext = vm;
+                        window.ShowDialog();
                     }
                     else
                         MessageBox.Show("Username or Password is Wrong", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);

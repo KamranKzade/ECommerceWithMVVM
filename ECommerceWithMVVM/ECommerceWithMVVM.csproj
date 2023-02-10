@@ -110,6 +110,7 @@
     <Compile Include="Domain\Sevices\CustomerService.cs" />
     <Compile Include="Domain\Sevices\FileService.cs" />
     <Compile Include="Domain\Sevices\ProductService.cs" />
+    <Compile Include="Domain\ViewModels\AdminViewModel.cs" />
     <Compile Include="Domain\ViewModels\BaseViewModel.cs" />
     <Compile Include="Domain\ViewModels\CustomerViewModel.cs" />
     <Compile Include="Domain\ViewModels\MainViewModel.cs" />
