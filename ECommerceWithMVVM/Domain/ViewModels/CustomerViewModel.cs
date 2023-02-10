@@ -1,16 +1,13 @@
-﻿using ECommerceWithMVVM.Commands;
-using ECommerceWithMVVM.DataAccess;
-using ECommerceWithMVVM.Domain.Abstractions;
-using ECommerceWithMVVM.Domain.Sevices;
-using ECommerceWithMVVM.Domain.Views;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using ECommerceWithMVVM.Commands;
+using ECommerceWithMVVM.DataAccess;
+using ECommerceWithMVVM.Domain.Views;
+using System.Collections.ObjectModel;
+using ECommerceWithMVVM.Domain.Sevices;
+using ECommerceWithMVVM.Domain.Abstractions;
 
 namespace ECommerceWithMVVM.Domain.ViewModels
 {
