@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="\ResouceDictionaries\RadionStyle.xaml"/>
                 <ResourceDictionary Source="\ResouceDictionaries\TextBlockStyle.xaml"/>
                 <ResourceDictionary Source="\ResouceDictionaries\PasswordBoxStyle.xaml"/>
+                <ResourceDictionary Source="\ResouceDictionaries\ButtonStyleForAdmin.xaml"/>
                 <ResourceDictionary Source="\ResouceDictionaries\ButtonStyleForSignIn.xaml"/>
                 <ResourceDictionary Source="\ResouceDictionaries\ButtonStyleForMainWindow.xaml"/>
                 <ResourceDictionary Source="\ResouceDictionaries\TextBoxStyleForSignInWindow.xaml"/>
