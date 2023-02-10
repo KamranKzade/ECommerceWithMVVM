@@ -10,11 +10,12 @@ namespace ECommerceWithMVVM.Domain.ViewModels
 {
     public class ProductViewModel :BaseViewModel
     {
-
-        private readonly IRepository<Product> _productRepo;
         private readonly IRepository<Order> _orderRepo;
         private readonly CustomerService _customerService;
+        private readonly IRepository<Product> _productRepo;
+
         public RelayCommand OrderCommand { get; set; }
+
         public ProductViewModel()
         {
             _productRepo = new ProductRepository();
