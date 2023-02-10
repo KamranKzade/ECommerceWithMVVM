@@ -1,25 +1,25 @@
-﻿<Window x:Class="ECommerceWithMVVM.Domain.Views.MainWindow"
+﻿<Window x:Class="ECommerceWithMVVM.SingInWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ECommerceWithMVVM.Domain.Views"
-        mc:Ignorable="d"
+        xmlns:local="clr-namespace:ECommerceWithMVVM"
+        mc:Ignorable="d" 
         Title="Log In"
         Height="800"
         Width="550"
         WindowStyle="None" 
-        Name="Mainwindow"
+        Name="window"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
-        Icon="/Images/e-commerce.png">
+        Icon="/Images/icon.png">
     <Border CornerRadius="20">
 
         <Border.Background>
             <ImageBrush 
-                ImageSource="/Images/e-commerceBackgroundCover.png"
+                ImageSource="/Images/signInCover.png"
                 Stretch="Fill"
                 />
         </Border.Background>
@@ -46,8 +46,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="35"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="2*"/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
 
                 <Grid>
@@ -58,7 +57,7 @@
                         <ColumnDefinition Width="5"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="Main Window"
+                    <TextBlock Text="SIGN IN"
                            Foreground="WhiteSmoke"
                            FontSize="18"
                            FontFamily="MontSerrat"
@@ -80,7 +79,7 @@
                         Cursor="Hand"
                         Grid.Column="1"
                         Command="{Binding Minimize_Btn}" 
-                        CommandParameter="{Binding ElementName=Mainwindow}"
+                        CommandParameter="{Binding ElementName=window}"
                         >
                         <Button.Style>
                             <Style TargetType="Button">
@@ -119,7 +118,7 @@
                         Cursor="Hand"
                         Grid.Column="2"
                         Command="{Binding Close_Btn}"
-                        CommandParameter="{Binding ElementName=Mainwindow}"
+                        CommandParameter="{Binding ElementName=window}"
                         >
 
                         <Button.Style>
@@ -149,81 +148,130 @@
 
                 </Grid>
 
-                <Image Grid.Row="1"
-                       Width="350"
-                       Stretch="Fill"
-                       Source="/Images/welcome.png"/>
-
-                
                 <StackPanel Width="400" 
                             Name="MainStackPanel"
                             Grid.Row="2"
-                            VerticalAlignment="Top"
+                            VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             Orientation="Vertical"
-                            Margin="0 15 0 0">
-                    
+                            Margin="0 35 0 0">
+                    <Image  Width="100" 
+                            Height="100" 
+                            Source="/Images/login.png"/>
+
+                    <!-- Username && Password -->
+                    <TextBlock 
+                        Text="Username"
+                        Style="{StaticResource tboxStyle}"/>
+
+                    <TextBox 
+                        Name="username"
+                        Style="{StaticResource txtStyle}">
+                        <TextBox.Background>
+                            <ImageBrush 
+                                ImageSource="/Images/User.png" 
+                                Stretch="Uniform" 
+                                AlignmentX="Left"/>
+                        </TextBox.Background>
+                    </TextBox>
+
+                    <TextBlock 
+                        Text="Password"
+                       Style="{StaticResource tboxStyle}"/>
+
+                    <PasswordBox 
+                        Name="lastname"
+                        Style="{StaticResource passwordStyle}">
+                        <PasswordBox.Background>
+                            <ImageBrush ImageSource="/Images/key.png"
+                                        Stretch="Uniform" 
+                                        AlignmentX="Left"/>
+                        </PasswordBox.Background>
+                    </PasswordBox>
+
+
                     <!-- Sign In && Sign Up -->
-                    <Button Name="Admin"
-                            Command="{Binding Click}"
-                            CommandParameter="{Binding ElementName=Admin}"
-                            Content="Admin"
-                            Style="{StaticResource btnStyleMain}">
 
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border
-                                        Width="200"
-                                        Height="90" 
-                                        CornerRadius="30"
-                                        Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center"
-                                                          HorizontalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
+                    <Button 
+                        Name="SignIn"
+                        Command="{Binding SignIn}"
+                        CommandParameter="{Binding ElementName=MainStackPanel}"
+                        Content="Sign In"
+                        Style="{StaticResource btnStyle}">
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border
+                                    Width="150"
+                                    Height="50" 
+                                    CornerRadius="30"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
                     </Button>
 
-                    <Button Name="Customer"
-                            Command="{Binding Click}"
-                            CommandParameter="{Binding ElementName=Customer}"
-                            Content="Customer"
-                             Style="{StaticResource btnStyleMain}">
+                    <Button 
+                        Name="SignUp"
+                        Content="Sign Up"
+                        Padding="25"
+                        Command="{Binding SignUp}"
+                        CommandParameter="{Binding ElementName=MainStackPanel}"
+                        Margin="0 10 0 0"
+                        VerticalAlignment="Center"
+                        BorderThickness="0"
+                        Foreground="White"
+                        FontSize="16"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="2">
 
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border
-                                        Width="200"
-                                        Height="90" 
-                                        CornerRadius="30"
-                                        Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center"
-                                                          HorizontalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="MediumVioletRed"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Red"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border
+                                    Width="100"
+                                    Height="30" 
+                                    CornerRadius="20"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
                     </Button>
 
-                    <Button Name="Guest"
-                            Command="{Binding Click}"
-                            CommandParameter="{Binding ElementName=Guest}"
-                            Content="Guest"
-                            Style="{StaticResource btnStyleMain}">
+                    <!-- Forget Password -->
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0 15 0 0">
+                        <TextBlock Text="Forgot Password?"
+                                   Foreground="Black"
+                                   FontSize="12"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"/>
 
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border
-                                        Width="200"
-                                        Height="90" 
-                                        CornerRadius="30"
-                                        Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center"
-                                                          HorizontalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                    </Button>
-                    
+                        <TextBlock Text="Reset"
+                                   Foreground="White"
+                                   FontSize="12"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"
+                                   Cursor="Hand"
+                                   Margin="12 0 0 0"/>
+                    </StackPanel>
+
                 </StackPanel>
 
             </Grid>

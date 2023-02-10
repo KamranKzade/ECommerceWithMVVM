@@ -4,6 +4,19 @@
              xmlns:local="clr-namespace:ECommerceWithMVVM"
              StartupUri="/Domain/Views/MainWindow.xaml">
     <Application.Resources>
-         
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                
+                <ResourceDictionary Source="\ResouceDictionaries\RadionStyle.xaml"/>
+                <ResourceDictionary Source="\ResouceDictionaries\TextBlockStyle.xaml"/>
+                <ResourceDictionary Source="\ResouceDictionaries\PasswordBoxStyle.xaml"/>
+                <ResourceDictionary Source="\ResouceDictionaries\ButtonStyleForSignIn.xaml"/>
+                <ResourceDictionary Source="\ResouceDictionaries\ButtonStyleForMainWindow.xaml"/>
+                <ResourceDictionary Source="\ResouceDictionaries\TextBoxStyleForSignInWindow.xaml"/>
+            
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
     </Application.Resources>
 </Application>

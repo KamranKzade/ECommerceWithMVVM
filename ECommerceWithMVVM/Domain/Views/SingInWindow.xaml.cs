@@ -11,18 +11,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ECommerceWithMVVM.Domain.Views
+namespace ECommerceWithMVVM
 {
-    public partial class MainWindow : Window
+
+    public partial class SingInWindow : Window
     {
-        public MainWindow()
+        public SingInWindow()
         {
             InitializeComponent();
 
-            MainViewModel vm = new MainViewModel();
-            this.DataContext= vm;
+            SingInViewModel viewModel = new SingInViewModel();
+            this.DataContext = viewModel;
         }
     }
 }
