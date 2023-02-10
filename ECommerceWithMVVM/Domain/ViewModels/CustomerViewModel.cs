@@ -2,6 +2,7 @@
 using ECommerceWithMVVM.DataAccess;
 using ECommerceWithMVVM.Domain.Abstractions;
 using ECommerceWithMVVM.Domain.Sevices;
+using ECommerceWithMVVM.Domain.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -92,14 +93,13 @@ namespace ECommerceWithMVVM.Domain.ViewModels
 
             SelectProductCommand = new RelayCommand((o) =>
             {
-                MessageBox.Show("Bombadir");
-                //  var vm = new ProductInfoViewModel();
-                //  vm.ProductInfo = SelectedProduct;
-                // 
-                //  var view = new ProductWindow();
-                //  view.DataContext = vm;
-                // 
-                //  view.ShowDialog();
+                var vm = new ProductViewModel();
+                vm.ProductInfo = SelectedProduct;
+
+                var view = new ProductWindow();
+                view.DataContext = vm;
+
+                view.ShowDialog();
             });
 
         }
