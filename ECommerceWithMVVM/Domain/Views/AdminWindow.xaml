@@ -87,7 +87,7 @@
                     Style="{StaticResource btnStyleAdmin}"
                     FontSize="32"
                     Command="{Binding DeleteCommand}"
-                    CommandParameter="{Binding ElementName=myDataGrid}"
+                    CommandParameter="{Binding ElementName=myGrid}"
                     Foreground="#f11712"
                     />
 
