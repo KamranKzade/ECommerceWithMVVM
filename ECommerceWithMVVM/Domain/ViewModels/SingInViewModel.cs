@@ -67,7 +67,7 @@ namespace ECommerceWithMVVM.Domain.ViewModels
                     {
                         var productRepo = new ProductRepository();
                         CustomerWindow window = new CustomerWindow();
-                        var vm = new CustomerViewModel(productRepo);
+                        var vm = new CustomerViewModel(productRepo, false);
 
                         window.DataContext = vm;
 

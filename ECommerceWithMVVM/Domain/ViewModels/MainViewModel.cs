@@ -17,7 +17,7 @@ namespace ECommerceWithMVVM.Domain.ViewModels
         public RelayCommand Minimize_Btn { get; set; }
         public RelayCommand Close_Btn { get; set; }
 
-        bool _isCustomer;
+        bool _isCustomer, _isguest;
 
         public MainViewModel()
         {
@@ -59,11 +59,10 @@ namespace ECommerceWithMVVM.Domain.ViewModels
                 }
                 else
                 {
-
+                    _isguest = true;
                     var productRepo = new ProductRepository();
                     CustomerWindow window = new CustomerWindow();
-                    var vm = new CustomerViewModel(productRepo);
-
+                    var vm = new CustomerViewModel(productRepo, _isguest);
                     window.DataContext = vm;
 
                     window.ShowDialog();

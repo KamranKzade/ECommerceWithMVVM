@@ -42,7 +42,8 @@ namespace ECommerceWithMVVM.Domain.ViewModels
         public RelayCommand OrderCommand { get; set; }
         public RelayCommand AddToCartCommand { get; set; }
 
-
+        public Window MyWindow { get; set; }
+        
         public ProductViewModel()
         {
             _productRepo = new ProductRepository();
@@ -51,8 +52,11 @@ namespace ECommerceWithMVVM.Domain.ViewModels
 
             ProductInfo = new Product();
 
+            
+
             OrderCommand = new RelayCommand((o) =>
             {
+                MessageBox.Show(MyWindow.Name);
                 var window = o as Window;
                 var customer = _customerService.GetCustomerByUsername(Username);
                 if (customer != null)

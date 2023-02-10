@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace ECommerceWithMVVM.Domain.ViewModels
 {
@@ -57,8 +58,9 @@ namespace ECommerceWithMVVM.Domain.ViewModels
         public RelayCommand SelectProductCommand { get; set; }
         public RelayCommand SearchCommand { get; set; }
 
-
-        public CustomerViewModel(IRepository<Product> productRepo)
+        public Window myWindow { get; set; }
+       
+        public CustomerViewModel(IRepository<Product> productRepo, bool _isguest)
         {
             SearchText = String.Empty;
             FilterText = "Higher To Lower";
@@ -93,12 +95,22 @@ namespace ECommerceWithMVVM.Domain.ViewModels
 
             SelectProductCommand = new RelayCommand((o) =>
             {
+                var view = new ProductWindow();
                 var vm = new ProductViewModel();
                 vm.ProductInfo = SelectedProduct;
+                vm.MyWindow = view.window;
 
-                var view = new ProductWindow();
+
+                if(_isguest is true)
+                {
+                    var grid = vm.MyWindow.Content as Grid;
+                    var stackpanel = (grid.Children[0]as StackPanel).Children[0] as StackPanel;
+                    var button = stackpanel.Children[11] as Button;
+                    button.Content = string.Empty;
+                    button.Visibility= Visibility.Hidden;
+                }
+
                 view.DataContext = vm;
-
                 view.ShowDialog();
             });
 
