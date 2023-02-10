@@ -14,12 +14,12 @@
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
-        Icon="/Images/icon.png">
+        Icon="../../Images/signUpIcon.png">
     <Border CornerRadius="20">
 
         <Border.Background>
             <ImageBrush 
-                ImageSource="/Images/signInCover.png"
+                ImageSource="../../Images/signUpCover.png"
                 Stretch="Fill"
                 />
         </Border.Background>
@@ -157,7 +157,7 @@
                             Margin="0 35 0 0">
                     <Image  Width="100" 
                             Height="100" 
-                            Source="/Images/login.png"/>
+                            Source="../../Images/signUp.png"/>
 
                     <!-- Username && Password -->
                     <TextBlock 
@@ -169,7 +169,7 @@
                         Style="{StaticResource txtStyle}">
                         <TextBox.Background>
                             <ImageBrush 
-                                ImageSource="/Images/User.png" 
+                                ImageSource="../../Images/User.png" 
                                 Stretch="Uniform" 
                                 AlignmentX="Left"/>
                         </TextBox.Background>
@@ -183,7 +183,7 @@
                         Name="password"
                         Style="{StaticResource passwordStyle}">
                         <PasswordBox.Background>
-                            <ImageBrush ImageSource="/Images/key.png"
+                            <ImageBrush ImageSource="../../Images/key.png"
                                         Stretch="Uniform" 
                                         AlignmentX="Left"/>
                         </PasswordBox.Background>
@@ -198,7 +198,7 @@
                         Name="Confirmpassword"
                         Style="{StaticResource passwordStyle}">
                         <PasswordBox.Background>
-                            <ImageBrush ImageSource="/Images/key.png"
+                            <ImageBrush ImageSource="../../Images/key.png"
                                         Stretch="Uniform" 
                                         AlignmentX="Left"/>
                         </PasswordBox.Background>

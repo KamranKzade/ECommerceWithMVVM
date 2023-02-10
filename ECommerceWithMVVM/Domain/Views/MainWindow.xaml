@@ -19,7 +19,7 @@
 
         <Border.Background>
             <ImageBrush 
-                ImageSource="/Images/e-commerceBackgroundCover.png"
+                ImageSource="../../Images/e-commerceBackgroundCover.png"
                 Stretch="Fill"
                 />
         </Border.Background>
@@ -152,7 +152,7 @@
                 <Image Grid.Row="1"
                        Width="350"
                        Stretch="Fill"
-                       Source="/Images/welcome.png"/>
+                       Source="../../Images/welcome.png"/>
 
                 
                 <StackPanel Width="400" 

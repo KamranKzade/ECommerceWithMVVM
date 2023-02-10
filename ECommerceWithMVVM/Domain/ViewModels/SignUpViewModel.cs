@@ -6,7 +6,7 @@ using ECommerceWithMVVM.Commands;
 using ECommerceWithMVVM.DataAccess;
 using ECommerceWithMVVM.Domain.Abstractions;
 using ECommerceWithMVVM.DataAccess.Repositories;
-
+using System;
 
 namespace ECommerceWithMVVM.Domain.ViewModels
 {
@@ -119,17 +119,24 @@ namespace ECommerceWithMVVM.Domain.ViewModels
                                 Password = password.Password,
                             };
 
-                            _customerRepo.AddData(customer);
+                            try
+                            {
+                                _customerRepo.AddData(customer);
+                                MessageBox.Show("Customer Successfully Added", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                                window.Close();
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show($"Artiq bu Adda UserName movcuddur", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
 
-                            MessageBox.Show("Customer Successfully Added", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                            window.Close();
                         }
                     }
                 }
 
             });
-        
-        
+
+
         }
 
 
