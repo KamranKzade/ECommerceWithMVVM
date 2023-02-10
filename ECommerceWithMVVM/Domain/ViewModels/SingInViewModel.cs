@@ -12,8 +12,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
+
 namespace ECommerceWithMVVM.Domain.ViewModels
 {
+
     public class SingInViewModel : BaseViewModel
     {
         private readonly IAdminRepository _adminRepo;
@@ -60,9 +62,16 @@ namespace ECommerceWithMVVM.Domain.ViewModels
                     var password = stackPanel.Children[4] as PasswordBox;
 
                     _customerRepo.CheckCustomer(username.Text, password.Password, ref result);
+
                     if (result is 1)
                     {
-                        MessageBox.Show("New Page is loading");
+                        var productRepo = new ProductRepository();
+                        CustomerWindow window = new CustomerWindow();
+                        var vm = new CustomerViewModel(productRepo);
+
+                        window.DataContext = vm;
+
+                        window.ShowDialog();
                     }
                     else
                         MessageBox.Show("Username or Password is Wrong", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -92,9 +101,9 @@ namespace ECommerceWithMVVM.Domain.ViewModels
             {
                 if (_IsCustomer is true)
                 {
-                    SignUpWindow window= new SignUpWindow();
+                    SignUpWindow window = new SignUpWindow();
                     var vm = new SignUpViewModel();
-                    window.DataContext= vm;
+                    window.DataContext = vm;
                     window.ShowDialog();
 
                 }
