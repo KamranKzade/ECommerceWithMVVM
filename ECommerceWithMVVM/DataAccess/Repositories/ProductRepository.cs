@@ -42,14 +42,11 @@ namespace ECommerceWithMVVM.DataAccess.Repositories
         {
             var item = _dataContext.Products.SingleOrDefault(p => p.Id == data.Id);
 
-            item = new Product
-            {
-                Name = data.Name,
-                Price = data.Price,
-                Description = data.Description,
-                Quantity = data.Quantity,
-                Discount = data.Discount
-            };
+            item.Price = data.Price;
+            item.Quantity = data.Quantity;
+            item.Discount = data.Discount;
+
+
             _dataContext.SubmitChanges();
         }
     }

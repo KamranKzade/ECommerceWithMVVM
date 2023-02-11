@@ -42,13 +42,8 @@ namespace ECommerceWithMVVM.DataAccess.Repositories
         {
             var item = _dataContext.Customers.SingleOrDefault(c => c.Id == data.Id);
 
-            item = new Customer
-            {
-                Id = data.Id,
-                Orders = data.Orders,
-                Username = data.Username,
-                Password = data.Password,
-            };
+            item.Password = data.Password;
+
             _dataContext.SubmitChanges();
         }
 
