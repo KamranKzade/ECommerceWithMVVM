@@ -1,12 +1,8 @@
-﻿using ECommerceWithMVVM.Commands;
-using ECommerceWithMVVM.DataAccess;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using System;
 using System.Windows;
+using System.Windows.Controls;
+using ECommerceWithMVVM.Commands;
+using ECommerceWithMVVM.DataAccess;
 using ECommerceWithMVVM.Domain.Abstractions;
 using ECommerceWithMVVM.DataAccess.Repositories;
 

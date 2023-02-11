@@ -24,12 +24,12 @@ namespace ECommerceWithMVVM.Domain.ViewModels
             InsertCommand = new RelayCommand((o) =>
             {
                 var window = o as Window;
-                var grid = window.Content as  Grid;
+                var grid = window.Content as Grid;
 
 
-               var mygrid = grid.Children[1] as Grid;
-               var username = (mygrid.Children[2] as TextBox).Text;
-               var password = (mygrid.Children[3] as TextBox).Text;
+                var mygrid = grid.Children[1] as Grid;
+                var username = (mygrid.Children[2] as TextBox).Text;
+                var password = (mygrid.Children[3] as TextBox).Text;
 
                 int id = _customerRepo.GetAllData().Last().Id;
                 Customer customer = new Customer

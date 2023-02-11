@@ -126,6 +126,7 @@
     <Compile Include="Domain\ViewModels\MainViewModel.cs" />
     <Compile Include="Domain\ViewModels\ProductViewModel.cs" />
     <Compile Include="Domain\ViewModels\UpdateCustomerViewModel.cs" />
+    <Compile Include="Domain\ViewModels\UpdateProductViewModel.cs" />
     <Compile Include="Domain\Views\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
@@ -154,6 +155,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Domain\Views\UpdateCustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\Views\UpdateProductWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,6 +194,9 @@
   <ItemGroup>
     <Compile Include="Domain\Views\UpdateCustomerWindow.xaml.cs">
       <DependentUpon>UpdateCustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Views\UpdateProductWindow.xaml.cs">
+      <DependentUpon>UpdateProductWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

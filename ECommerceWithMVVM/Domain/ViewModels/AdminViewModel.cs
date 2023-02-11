@@ -180,7 +180,18 @@ namespace ECommerceWithMVVM.Domain.ViewModels
                 }
                 else if (product_radio_button.IsChecked is true)
                 {
+                    var product = dataGrid.SelectedItem as Product;
 
+                    var view = new UpdateProductWindow();
+                    view.productName.Text = product.Name;
+                    view.descr.Text = product.Description;
+                    view.price.Text=product.Price.ToString();
+                    view.discount.Text=product.Discount.ToString();
+                    view.quantity.Text = product.Quantity.ToString();
+
+                    var vm = new UpdateProductViewModel(_productRepo, product);
+                    view.DataContext = vm;
+                    view.ShowDialog();
                 }
                 else
                     MessageBox.Show("Zehmet olmasa secimlerden birini edin", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
